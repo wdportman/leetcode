@@ -12,6 +12,26 @@ Explanation: Both S and T become "ac".
 
 */
 
-const backspaceCompare = function(S, T) {
-
+const updateInput = function(string) {
+  const array = string.split('');
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === '#') {
+      array.splice(i-1,2);
+    };
+  };
+  newString = array.join('');
+  return newString;
 };
+
+const backspaceCompare = function(S, T) {
+  const new_S = updateInput(S);
+  const new_T = updateInput(T);
+  if (new_S === new_T) {
+    return true;
+  }
+  return false;
+};
+
+
+console.log(backspaceCompare(
+  "ab##", "c#d#"))
