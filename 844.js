@@ -13,14 +13,16 @@ Explanation: Both S and T become "ac".
 */
 
 const updateInput = function(string) {
-  const array = string.split('');
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === '#') {
-      array.splice(i-1,2);
+  let outputArray = [];
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] !== '#') {
+      outputArray.push(string[i]);
+    } else {
+      outputArray.pop();
     };
   };
-  newString = array.join('');
-  return newString;
+  const output = outputArray.join('');
+  return output;
 };
 
 const backspaceCompare = function(S, T) {
@@ -32,6 +34,4 @@ const backspaceCompare = function(S, T) {
   return false;
 };
 
-
-console.log(backspaceCompare(
-  "ab##", "c#d#"))
+console.log(backspaceCompare("ab##", "c#d#"))
