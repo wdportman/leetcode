@@ -12,20 +12,23 @@ You are given two integer arrays students and sandwiches where sandwiches[i] is 
 
 const countStudents = function (students, sandwiches) {
 
-  let initialNumStudents = students.length;
-
-  while (numTries = initialNumStudents) {
-    if (students[0] === sandwiches[0]) {
-      students.shift();
-      sandwiches.shift();
-      numTries += 1;
-    } else {
-      students.push(students.shift());
-      numTries += 1;
-    }
+  if (!students.includes(sandwiches[0])) {
+    return students.length;
   };
 
-  return students.length;
+  if (students.length === 0) {
+    return 0;
+  };
+
+  if (students[0] === sandwiches[0]) {
+    students.shift();
+    sandwiches.shift();
+    return countStudents(students, sandwiches)
+  }
+  if (students[0] !== sandwiches[0]) {
+    students.push(students.shift());
+    return countStudents(students, sandwiches);
+  };
 
 };
 
