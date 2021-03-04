@@ -1,4 +1,9 @@
 def rotateString(A: str, B: str):
-  pass
+  if len(A) != len(B):
+    return False
+  double_B = B + B
+  if A in double_B:
+    return True
+  return False
 
-print(rotateString('abcde', 'cdeab')
+print(rotateString('aa', 'a'))
